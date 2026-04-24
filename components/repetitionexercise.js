@@ -6,3 +6,19 @@ export default function RepetitionExercise({ route, navigation}) {
     const { name, suggested } = route.params;
     const [count, setCount] = useState(0);
 
+    return (
+      <View style={styles.container}>
+        <Text h2>{name}</Text>
+        <Text h1 style={styles.counter}>{count}</Text>
+
+        <Button title="Increase" onPress={() => setCount(count + 1)} containerStyle={styles.mainBtn} />
+        <Button title="Reset" type="outline" onPress={() => setCount(0)} />
+
+      <View style={styles.navSection}>
+        <Button 
+          title={`Suggested: ${suggested.name}`} 
+          type="clear" 
+          onPress={() => navigation.push(suggested.type === 'repetition' ? 'RepetitionExercise' : 'DurationExercise', { ...suggested, suggested: { name: 'Home', type: 'home' } })} 
+        />
+        
+
