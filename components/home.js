@@ -1,20 +1,11 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Home from './screens/Home';
-import RepetitionExercise from './screens/RepetitionExercise';
-import DurationExercise from './screens/DurationExercise';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { Button, Text } from 'react-native-elements';
 
-const Stack = createStackNavigation();
+const EXERCISES = [
+    { id: '1', name: 'Pushups', type: 'repetition', suggested: { name: 'Plank', type: 'duration'} },
+    { id: '2', name:'Running', type: 'duration', suggested: { name: 'Squats', type: 'repetition'} },
+    { id: '3', name: 'Squats', type: 'repetition', suggested: { name: 'Running', type: 'duration' } },
+    { id: '4', name: 'Plank', type: 'duration', suggested: { name: 'Pushups', type: 'repetition' } },
+  ];
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="RepetitionExercise" component={RepetitionExercise} options={({ route }) => ({ title: route.params.name })} />
-        <Stack.Screen name="DurationExercise" component={DurationExercise} options={({ route }) => ({ title: route.params.name })} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
