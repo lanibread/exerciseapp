@@ -20,5 +20,16 @@ export default function RepetitionExercise({ route, navigation}) {
           type="clear" 
           onPress={() => navigation.push(suggested.type === 'repetition' ? 'RepetitionExercise' : 'DurationExercise', { ...suggested, suggested: { name: 'Home', type: 'home' } })} 
         />
-        
+        <Button title="Return Home" onPress={() => navigation.navigate('Home')} />
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+  counter: { marginVertical: 30 },
+  mainBtn: { width: 200, marginBottom: 10 },
+  navSection: { marginTop: 50 }
+});
 
